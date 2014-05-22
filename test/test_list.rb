@@ -5,7 +5,7 @@ ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: ":memory:"
 # ActiveRecord::Schema.verbose = false
 ActiveRecord::Schema.verbose = true
 ActiveRecord::Base.logger = Logger.new(STDOUT)
-ActiveRecord::Base.colorize_logging = false
+#ActiveRecord::Base.colorize_logging = false
 
 def setup_db(position_options = {})
   # AR caches columns options like defaults etc. Clear them!
