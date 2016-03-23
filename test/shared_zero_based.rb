@@ -5,12 +5,19 @@ module Shared
     end
 
     def test_insert
+      p("test_insert start")
       new = ZeroBasedMixin.create(parent_id: 20)
+      p("test_insert new 0: ")
+      p(new)
+      STDOUT.flush
       assert_equal 0, new.pos
       assert new.first?
       assert new.last?
 
       new = ZeroBasedMixin.create(parent_id: 20)
+      p("test_insert new 1: ")
+      p(new)
+      STDOUT.flush
       assert_equal 1, new.pos
       assert !new.first?
       assert new.last?

@@ -258,6 +258,8 @@ module ActiveRecord
         end
 
         def not_in_list?
+          p("not_in_list? position_column: " +  position_column)
+          STDOUT.flush
           send(position_column).nil?
         end
 
@@ -288,8 +290,11 @@ module ActiveRecord
 
           def add_to_list_bottom
             if not_in_list? || default_position?
+              p("add_to_list_bottom: not_in_list?: " + not_in_list?.to_s +
+                " default_position?: " + default_position?.to_s)
               self[position_column] = bottom_position_in_list.to_i + 1
             else
+              p("add_to_list_bottom: else")
               increment_positions_on_lower_items(self[position_column])
             end
           end
